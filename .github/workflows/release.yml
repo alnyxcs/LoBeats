@@ -61,15 +61,15 @@ jobs:
         id: get_version
         run: echo "VERSION=$(node -p \"require('./package.json').version\")" >> $GITHUB_ENV
       - name: Download Windows artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: LoBeats-windows
       - name: Download Linux DEB artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: LoBeats-linux-deb
       - name: Download Linux ZIP artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: LoBeats-linux-zip
       - name: Create Release
