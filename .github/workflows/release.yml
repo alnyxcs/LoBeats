@@ -52,6 +52,8 @@ jobs:
     name: Create GitHub Release
     needs: [build-windows, build-linux]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
@@ -77,6 +79,8 @@ jobs:
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         with:
           tag_name: v${{ env.VERSION }}
           release_name: LoBeats v${{ env.VERSION }}
@@ -84,6 +88,8 @@ jobs:
           prerelease: false
       - name: Upload Windows asset
         uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: dist/LoBeats-windows.exe
@@ -91,6 +97,8 @@ jobs:
           asset_content_type: application/octet-stream
       - name: Upload Linux DEB asset
         uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: dist/LoBeats-linux.deb
@@ -98,6 +106,8 @@ jobs:
           asset_content_type: application/octet-stream
       - name: Upload Linux ZIP asset
         uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: dist/LoBeats-linux.zip
