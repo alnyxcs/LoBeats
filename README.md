@@ -56,17 +56,6 @@ Version **1.5.3** refines the visual system and UX with in-app update checks, cu
 - PsyBrazil LoFi
 - Box Lofi Radio
 
-## Screenshots
-
-### Main Player
-![LoBeats Main](./Assets/screenshot_main.png =600x)
-
-### Library
-![LoBeats Library](./Assets/screenshot_library.png =600x)
-
-### Settings
-![LoBeats Settings](./Assets/screenshot_settings.png =600x)
-
 ## Installation
 
 ### Option 1: Prebuilt app
